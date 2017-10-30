@@ -1,0 +1,14 @@
+<% include partials/header %>
+
+<h1>CREATE A NEW LAKE</h1>
+
+<form action="/lakes" method="post">
+    <input type="text" name="name" placeholder="name">
+    <input type="text" name="image" placeholder="image url">
+    <button>Submit</button>
+</form>
+
+<a href="/lakes">Go back</a>
+
+<% include partials/footer %>
+
