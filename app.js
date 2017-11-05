@@ -22,7 +22,8 @@ mongoose.Promise = global.Promise;
 // // process.env.DATABASEURL || 
 //     // process.env.MONGODB_URI
 // mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://steven:Aslasym4@ds064198.mlab.com:64198/yelpcamp", {useMongoClient: true});
+mongoose.connect("mongodb://stevenlian1994:Aslasym4@ds062448.mlab.com:62448/yelpcamp", {useMongoClient: true});
+
 // const databaseUri = process.env.mongodb://<steven>:<lian>@ds062448.mlab.com:62448/yelpcamp
 // mongoose.connect(databaseUri, { useMongoClient: true })
 //       .then(() => console.log(`Database connected!`))
