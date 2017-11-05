@@ -1,24 +1,38 @@
 <% include partials/header %>
 
 
-
-<div class="container">
-    <h1>LOGIN FORM</h1>
-    <form action="/login" method="post">
-    <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-        <input type="text" class="form-control" name="username" placeholder="username">
-            
-    </div>
-    <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-        <input type="password" class="form-control" name="password" placeholder="password">
+<div class="container log-in-container">
+    
+    <div class=" log-in-title-container">
+        <div class="log-in-title title">Log In </div>
     </div>
     
-        <input class="btn btn-primary" type="submit" value="login">
-
+    <div class=" new-user-container">
+        <div class="new-user">
+            <span>New to YelpLakes?</span>
+            <a id="register-on-login-page" href="/register">Sign Up</a>
+        </div>
+    </div>
+    
+    <div class=" user-form-login-container">
+        <form action="/login" method="post">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input type="text" class="form-control" name="username" placeholder="username">
+                
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+            <input type="password" class="form-control" name="password" placeholder="password">
+        </div>
+        
+            <input class="btn btn-primary" type="submit" value="Log In">
     </form>
+        
+    </div>
+     
     
+
 </div>
 
 

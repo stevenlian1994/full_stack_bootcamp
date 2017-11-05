@@ -1,20 +1,69 @@
+
 body{
     margin: 0;
     font-family: arial;
+    /*font-family: 'Helvetica', 'Arial', sans-serif;*/
 }
 
 form{
     font-size: 25px;
 }
 
+.new-user a {
 
-.input-group .form-control {
-    width: 20%;
+    text-decoration: none;
+
+}
+
+.log-in-container{
+    height: 200px;
+    width: 450px;
+
+}
+
+.log-in-title {
+    font-size: 56px;
+    margin-bottom: 17px;
+}
+
+#landing-header {
+    margin-top: 5%;
+    text-align:center;
+}
+
+.new-user {
+    font-size: 20px;
+    margin-bottom: 34px;
+}
+
+.sign-up-container{
+    height: 200px;
+    width: 450px;
+
+}
+
+.sign-up-title {
+    font-size: 56px;
+    margin-bottom: 17px;
 }
 
 
-input[name="username"]:valid,
-input[name="password"]:valid{
+
+.registered-user {
+    font-size: 20px;
+    margin-bottom: 34px;
+}
+
+
+
+
+.input-group .form-control {
+    width: 60%;
+}
+
+
+input[name="reg_username"]:valid,
+input[name="reg_password"]:valid{
     border: 2px solid green;
 }
 
@@ -41,9 +90,3 @@ input[name="password"]:valid + .tick{
 /*    margin: 10px;*/
 /*}*/
 
-.simple-form input:required {
-  border-left-color: palegreen;
-}
-.simple-form input:invalid {
-  border-left-color: salmon;
-}

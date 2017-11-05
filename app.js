@@ -17,7 +17,19 @@ var indexRoutes = require("./routes/index");
 
 //DB CONFIGURATION
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost/yelp_lakes_practice", {useMongoClient: true});
+// mongoose.connect("mongodb://localhost/yelp_lakes_practice", {useMongoClient: true});
+
+// // process.env.DATABASEURL || 
+//     // process.env.MONGODB_URI
+// mongoose.Promise = global.Promise;
+mongoose.connect("mongodb://steven:Aslasym4@ds064198.mlab.com:64198/yelpcamp", {useMongoClient: true});
+// const databaseUri = process.env.mongodb://<steven>:<lian>@ds062448.mlab.com:62448/yelpcamp
+// mongoose.connect(databaseUri, { useMongoClient: true })
+//       .then(() => console.log(`Database connected!`))
+//       .catch(err => console.log(`Database connection error: ${err.message}`));
+
+
+
   
 //APP CONFIGURATION
 app.use(express.static(__dirname + '/public/stylesheets'));

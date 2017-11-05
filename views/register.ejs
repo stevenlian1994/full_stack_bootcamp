@@ -1,63 +1,90 @@
 <% include partials/header %>
 
-<div class="container">
-    <fieldset>
-        <legend>Sign-Up Form</legend>
-            <form action="/register" method="post">
-            <!--<label for="username">Username</label>-->
-            <!--<input type="text" id="username" name="username" placeholder="username"  pattern="[a-z]{2,20}" title="Username should only contain lowercase letters. e.g. john; Username should be at least 8 characters long" required>-->
-            <!--<br>-->
-            <!--<label for="password">Password</label>-->
-            <!--<input type="password" id="password" name="password" placeholder="password"  pattern="[a-z]{8,15}"title="Password should only contain lowercase letters. e.g. john; Password should be at least 8 characters long" required>-->
-            
-            
+<div class="container sign-up-container">
+    
+    <div class=" sign-up-title-container">
+        <div class="sign-up-title title">Sign Up </div>
+    </div>
+    
+    <div class="registered-user-container">
+        <div class="registered-user">
+            <span>Already have a YelpLakes account?</span>
+            <a id="login-on-login-page" href="/login">Log In</a>
+        </div>
+    </div>
+    
+    <div class=" user-form-signup-container">
         <form action="/register" method="post">
-
+        
                 <label for="username">Username</label>
-                <input type="text" id="username" name="username" placeholder="username" pattern=^[a-z0-9]{6,15}$ title="Username should only contain lowercase letters and at least 6 char." required>
+                <input type="text" id="username" name="reg_username" placeholder="username" pattern=^[a-z0-9]{6,15}$ title="Username should only contain lowercase letters and at least 6 char." required>
                 <span class="tick"></span>
             <br>
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="password" pattern=^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]{6,15}$  title="Password should only contain lowercase letters and at least 6 char."  required>
+                <input type="password" id="password" name="reg_password" placeholder="password" pattern=^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]{6,15}$  title="Password should only contain lowercase letters and at least 6 char."  required>
                 <span class="tick"></span>
             <br>
             
-            <!--^(?=.{8,20}$)[a-zA-Z0-9._]$ Test: doesn't work -->
+            <input class="btn btn-primary" type="submit" value="Sign Up">
             
-            <!--[A-Za-z\d](?=.*[a-z])(?=.*[A-Z])  Test: usernameU1234 Fail: Username1234 -->
-            
-            <!--(?=.*[a-z])(?=.*[A-Z]) Test: Username123  Fail: Username123# also works-->
-            
-            <!--pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"-->
-            
-            <!--[A-Za-z\d](?=.*[A-Z])-->
-            
-            <button>Sign Up</button>
-    </form>
-
-    </fieldset>
-</div>
-
-<div class="container">
-    <h4>Note: 
-    <br>
-    Username must be 6-16 characters long and contain no special characters and only lowercase letters and/or digits.
-    <br> Password must be 6-16 characters and contain no special characters and at least one lowercase letter, one uppercase letter, and one digit.
+        </form>
+        
+        
+    <!--    <form action="/login" method="post">-->
+    <!--    <div class="input-group">-->
+    <!--        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>-->
+    <!--        <input type="text" class="form-control" name="username" placeholder="username">-->
+                
+    <!--    </div>-->
+    <!--    <div class="input-group">-->
+    <!--        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>-->
+    <!--        <input type="password" class="form-control" name="password" placeholder="password">-->
+    <!--    </div>-->
+        
+    <!--        <input class="btn btn-primary" type="submit" value="login">-->
+    <!--</form>-->
+        
+    </div>
+     
     
-    
-    
-    </h4>
 
 </div>
+
+
+<!--<div class="container">-->
+<!--    <fieldset>-->
+<!--        <legend>Sign-Up Form</legend>-->
+       
+<!--        <form action="/register" method="post">-->
+
+<!--                <label for="username">Username</label>-->
+<!--                <input type="text" id="username" name="reg_username" placeholder="username" pattern=^[a-z0-9]{6,15}$ title="Username should only contain lowercase letters and at least 6 char." required>-->
+<!--                <span class="tick"></span>-->
+<!--            <br>-->
+<!--                <label for="password">Password</label>-->
+<!--                <input type="password" id="password" name="reg_password" placeholder="password" pattern=^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]{6,15}$  title="Password should only contain lowercase letters and at least 6 char."  required>-->
+<!--                <span class="tick"></span>-->
+<!--            <br>-->
+            
+            
+<!--            <button>Sign Up</button>-->
+<!--    </form>-->
+
+<!--    </fieldset>-->
+<!--</div>-->
+
+<!--<div class="container">-->
+<!--    <h4>Note: -->
+<!--    <br>-->
+<!--    Username must be 6-16 characters long and contain no special characters and only lowercase letters and/or digits.-->
+<!--    <br> Password must be 6-16 characters and contain no special characters and at least one lowercase letter, one uppercase letter, and one digit.-->
+    
+    
+    
+<!--    </h4>-->
+
+<!--</div>-->
 
 
 <!--<script src="password.js"></script>-->
 <% include partials/footer %>
-
-<!--            (?=^\d*\-?\d*$)[\d\-]{1,20}-->
-<!--Explanation-->
-
-<!--(?=^\d*-?\d*$): Looks if the string is only composed by digits and one optional dash-->
-<!--[\d-]{1,20}: Looks for a string with only digits and dashes, from one to twenty characters-->
-           
-            <!--<button>Sign Up</button>-->
