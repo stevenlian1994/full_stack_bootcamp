@@ -4,6 +4,18 @@ var express = require("express"),
 var passport = require("passport");
 var User = require("../models/user");
 
+// var passwordValidator = require('password-validator');
+ 
+//     // Create a schema 
+//     var schema = new passwordValidator();
+    
+//     // Add properties to it 
+//     schema
+//     .is().min(8)                                    // Minimum length 8 
+//     .is().max(100)                                  // Maximum length 100 
+//     .has().not().spaces()                           // Should not have spaces 
+    
+
 
 //ROOT ROUTE
 router.get("/", function(req, res){
@@ -18,12 +30,7 @@ router.get("/register", function(req, res){
 router.post("/register", function(req, res){
     // var newUserName = req.body.username
     var newUser = new User({username: req.body.username});
-    // if(newUserName.length<6){
-    //     console.log("username is too short");
-    //     res.redirect("/register");
         
-    // } else {
-
         User.register(newUser, req.body.password, function(err, user){
             if(err){
                 console.log(err);
@@ -35,7 +42,9 @@ router.post("/register", function(req, res){
                 });
             }
         });
-    // }
+    
+   
+
 });
 
 //LOGIN
@@ -67,6 +76,15 @@ function isLoggedIn(req, res, next){
     }
     res.redirect("/login");
 }
+
+// function passwordAuthenticated(req, res, next){
+//     if (schema.validate(req.body.password)) {
+//         return next();
+//     }
+//     else {
+//         res.redirect("/register");
+//     }
+// }
 
 
 

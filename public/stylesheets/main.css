@@ -1,3 +1,49 @@
+body{
+    margin: 0;
+    font-family: arial;
+}
+
+form{
+    font-size: 25px;
+}
+
+
 .input-group .form-control {
     width: 20%;
+}
+
+
+input[name="username"]:valid,
+input[name="password"]:valid{
+    border: 2px solid green;
+}
+
+
+
+input[name="username"]:valid + .tick,
+input[name="password"]:valid + .tick{
+    background: url(tick.png) center;
+    background-size : 100%;
+    display: block;
+    width: 20px;
+    height: 20px;
+    float: right;
+    margin: 10px;
+}
+
+/*.invalid {*/
+/*    background: url(tick.png) center;*/
+/*    background-size : 100%;*/
+/*    display: block;*/
+/*    width: 20px;*/
+/*    height: 20px;*/
+/*    float: right;*/
+/*    margin: 10px;*/
+/*}*/
+
+.simple-form input:required {
+  border-left-color: palegreen;
+}
+.simple-form input:invalid {
+  border-left-color: salmon;
 }

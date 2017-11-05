@@ -8,6 +8,9 @@ var express = require("express"),
     User = require("./models/user"),
     flash = require("connect-flash");
     
+
+    
+    
 //REQUIRE ROUTES
 var lakeRoutes = require("./routes/lakes");
 var indexRoutes = require("./routes/index");
