@@ -5,7 +5,7 @@
         <div class="container">
             <h1>Welcome to YelpLakes</h1>
             <p>We have hand-picked the best lakes to visit</p>
-            <h4>CREATE A NEW LAKE</h4>
+            <h4>Create a new lake</h4>
             <a href="/lakes/new">Add new Lake</a>
         </div>
     </header>
@@ -19,6 +19,9 @@
             <div class="caption">
                 <h4><%=lake.name%></h4>  
             </div>
+            <p>
+                <a href="/lakes/<%= lake._id %>" class="btn btn-primary">More Info</a>
+            </p>
         </div>
         
         <% }) %>

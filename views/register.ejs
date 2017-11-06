@@ -17,11 +17,11 @@
         <form action="/register" method="post">
         
                 <label for="username">Username</label>
-                <input type="text" id="username" name="reg_username" placeholder="username" pattern=^[a-z0-9]{6,15}$ title="Username should only contain lowercase letters and at least 6 char." required>
+                <input type="text" id="username" name="username" placeholder="username" pattern=^[a-z0-9]{6,15}$ title="Username should only contain lowercase letters and at least 6 char." required>
                 <span class="tick"></span>
             <br>
                 <label for="password">Password</label>
-                <input type="password" id="password" name="reg_password" placeholder="password" pattern=^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]{6,15}$  title="Password should only contain lowercase letters and at least 6 char."  required>
+                <input type="password" id="password" name="password" placeholder="password" pattern=^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]{6,15}$  title="Password should contain lowercase letters, at least one uppercase letter, and at least 6 char."  required>
                 <span class="tick"></span>
             <br>
             

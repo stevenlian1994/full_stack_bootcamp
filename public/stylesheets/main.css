@@ -62,10 +62,10 @@ form{
 }
 
 
-input[name="reg_username"]:valid,
-input[name="reg_password"]:valid{
-    border: 2px solid green;
-}
+/*input[id="reg_username"]:valid,*/
+/*input[id="reg_password"]:valid{*/
+/*    border: 2px solid green;*/
+/*}*/
 
 
 

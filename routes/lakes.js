@@ -37,3 +37,17 @@ router.get("/new", middleware.isLoggedIn, function(req, res){
 
 module.exports = router;
 
+//SHOW - shows more info about one campground
+router.get("/:id", function(req, res){
+    
+     Lake.findById(req.params.id, function(err, foundLake){
+            if(err) {
+                console.log(err);
+            } else {
+                //render show template with that lake
+                res.render("show", {lake: foundLake});
+            }
+        });
+
+});
+
