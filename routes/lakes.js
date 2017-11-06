@@ -11,7 +11,7 @@ router.get("/", function(req, res){
         if(err) {
             console.log(err);
         } else {
-            res.render("index", {lakes: foundLakes});
+            res.render("lakes/index", {lakes: foundLakes});
         }
     });
 });
@@ -32,7 +32,7 @@ router.post("/", middleware.isLoggedIn, function(req, res){
 
 //NEW ROUTE
 router.get("/new", middleware.isLoggedIn, function(req, res){
-   res.render("new"); 
+   res.render("lakes/new"); 
 });
 
 module.exports = router;
@@ -45,7 +45,7 @@ router.get("/:id", function(req, res){
                 console.log(err);
             } else {
                 //render show template with that lake
-                res.render("show", {lake: foundLake});
+                res.render("lakes/show", {lake: foundLake});
             }
         });
 
