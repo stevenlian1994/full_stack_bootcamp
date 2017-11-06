@@ -42,6 +42,19 @@ form{
 
 }
 
+.user-error-container{
+    text-align: center;
+    margin-top: 200px;
+
+}
+.password-error-container{
+    text-align: center;
+    margin-top: 50px;
+
+}
+
+
+
 .sign-up-title {
     font-size: 56px;
     margin-bottom: 17px;

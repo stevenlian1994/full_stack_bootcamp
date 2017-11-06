@@ -1,35 +1,69 @@
 <% include partials/header %>
 
-<div class="container sign-up-container">
+
+
+<div class="row">
     
-    <div class=" sign-up-title-container">
-        <div class="sign-up-title title">Sign Up </div>
-    </div>
-    
-    <div class="registered-user-container">
-        <div class="registered-user">
-            <span>Already have a YelpLakes account?</span>
-            <a id="login-on-login-page" href="/login">Log In</a>
+    <div class="error-message-col col-md-4">
+        <div class="user-error-container">
+            <label id="commentUseramePrompt"></label>
+        </div>
+        <div class="password-error-container">
+            <label id="commentPasswordPrompt"></label>
         </div>
     </div>
-    
-    <div class=" user-form-signup-container">
-        <form action="/register" method="post">
+  
+    <div class="sign-up-col col-md-4">  
+        <div class="container sign-up-container">
         
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" placeholder="username" pattern=^[a-z0-9]{6,15}$ title="Username should only contain lowercase letters and at least 6 char." required>
-                <span class="tick"></span>
-            <br>
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="password" pattern=^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]{6,15}$  title="Password should contain lowercase letters, at least one uppercase letter, and at least 6 char."  required>
-                <span class="tick"></span>
-            <br>
-            
-            <input class="btn btn-primary" type="submit" value="Sign Up">
-            
-        </form>
+            <div class="sign-up-title-container">
+                <div class="sign-up-title title">Sign Up </div>
+            </div>
         
+            <div class="registered-user-container">
+                <div class="registered-user">
+                    <span>Already have a YelpLakes account?</span>
+                    <a id="login-on-login-page" href="/login">Log In</a>
+                </div>
+            </div>
         
+            <div class=" user-form-signup-container">
+                <form action="/register" method="post">
+                
+                    <label for="username">Username</label>
+                    <input type="text" id="username" onkeyup="validateUsernameKeyup()" onblur="validateUsername()" name="username" placeholder="username" pattern=^[a-z0-9]{6,15}$ title="Username should only contain lowercase letters and at least 6 char." required>
+                    <span class="tick"></span>
+                    <br>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" onkeyup="validatePasswordKeyup()" onblur="validatePassword()" name="password" placeholder="password" pattern=^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]{6,15}$  title="Password should contain lowercase letters, at least one uppercase letter, one digit, and at least 6 char."  required>
+                    <span class="tick"></span>
+                    <br>
+                    <input class="btn btn-primary" type="submit" value="Sign Up">
+                
+                </form>
+            </div>
+        </div>
+    </div>
+  
+  
+    <div class="col-md-4">###</div>
+
+<script src="password.js"></script>
+<% include partials/footer %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <!--    <form action="/login" method="post">-->
     <!--    <div class="input-group">-->
     <!--        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>-->
@@ -43,12 +77,6 @@
         
     <!--        <input class="btn btn-primary" type="submit" value="login">-->
     <!--</form>-->
-        
-    </div>
-     
-    
-
-</div>
 
 
 <!--<div class="container">-->
@@ -87,4 +115,4 @@
 
 
 <!--<script src="password.js"></script>-->
-<% include partials/footer %>
+

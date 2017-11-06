@@ -1,5 +1,44 @@
+var usernameInput = document.getElementById("username");
+var passwordInput = document.getElementById("password");
 
-// var userInput = document.getElementById("username")
+function validateUsername() {
+    if(!usernameInput.value.match(/^[a-z0-9]{6,15}$/) ) {
+        producePrompt("Username needs to be at least 6 characters long and cannot include special characters.", "commentUseramePrompt", "red");
+    }
+}
+
+function validateUsernameKeyup() {
+    if(usernameInput.value.match(/^[a-z0-9]{6,15}$/)) {
+        producePrompt("Valid username", "commentUseramePrompt", "green");
+    }
+}
+
+function validatePassword() {
+    if(!passwordInput.value.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]{6,15}$/) ) {
+        producePrompt("Password should contain lowercase letters, at least one uppercase letter, one digit, and at least 6 characters.", "commentPasswordPrompt", "red");
+    }
+}
+
+function validatePasswordKeyup() {
+    if(passwordInput.value.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]{6,15}$/)) {
+        producePrompt("Valid password", "commentPasswordPrompt", "green");
+    }
+}
+
+
+
+
+function producePrompt(message, promptLocation, color)
+    {
+        document.getElementById(promptLocation).innerHTML = message;
+        document.getElementById(promptLocation).style.color = color;
+        
+    }
+    
+
+
+
+
 // var passwordInput = document.getElementById("password");
 
 // userInput.oninvalid = function(event) {
@@ -13,42 +52,30 @@
 // }
 
 
-
-// // function usernameCheck() {
-// //     //Validate length
-// //     if(userInput.value.length >=6) {
-// //         console.log("username is longer than 6 characters")
-// //     }
-// //     else
-// //     {
-// //         alert("username needs to be at least 6 characters long")
-// //     }
+// function validateUsername() {
+//     //Validate length
+//     if(userInput.value.length<6) {
+        
+//         producePrompt("Username needs to be at least 6 characters long and cannot include special characters", "commentNamePrompt", "red");
+//         return false;
+//     }
     
-// // }
-
-// // function passwordCheck() {
+//     // producePrompt("Valid username", "commentNamePrompt", "green");
+//     // return true;
     
-// // //Validate length
-// //     if(passwordInput.value.length >=8) {
-// //         console.log("password is longer than 8 characters")
-// //     }
-// //     else
-// //     {
-// //         alert("password: " + passwordInput.value + " is too short")
-// //     }
+// }
+
+// function validateUsernameKeyup() {
+//     if(userInput.value.length>=6) {
+//         producePrompt("Valid username", "commentNamePrompt", "green");
+//         return true;
+//     }
     
+// }
 
-// // }
-
-// // // Validate length
-// //   if(myInput.value.length >= 8) {
-// //     length.classList.remove("invalid");
-// //     length.classList.add("valid");
-// //   } else {
-// //     length.classList.remove("valid");
-// //     length.classList.add("invalid");
-// //   }
-
-
-
-// console.log("password.js works");
+// function producePrompt(message, promptLocation, color)
+//     {
+//         document.getElementById(promptLocation).innerHTML = message;
+//         document.getElementById(promptLocation).style.color = color;
+        
+//     }
