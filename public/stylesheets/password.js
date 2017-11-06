@@ -3,7 +3,7 @@ var passwordInput = document.getElementById("password");
 
 function validateUsername() {
     if(!usernameInput.value.match(/^[a-z0-9]{6,15}$/) ) {
-        producePrompt("Username needs to be at least 6 characters long and cannot include special characters.", "commentUseramePrompt", "red");
+        producePrompt("Username may only contain lowercase letters and/or numbers and a minimum of 6 characters with no special characters or spaces.", "commentUseramePrompt", "red");
     }
 }
 
@@ -15,7 +15,7 @@ function validateUsernameKeyup() {
 
 function validatePassword() {
     if(!passwordInput.value.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]{6,15}$/) ) {
-        producePrompt("Password should contain lowercase letters, at least one uppercase letter, one digit, and at least 6 characters.", "commentPasswordPrompt", "red");
+        producePrompt("Password must have at least one uppercase letter, one digit, and a minimum of 6 characters.", "commentPasswordPrompt", "red");
     }
 }
 

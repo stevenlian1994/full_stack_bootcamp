@@ -31,11 +31,11 @@
                 <form action="/register" method="post">
                 
                     <label for="username">Username</label>
-                    <input type="text" id="username" onkeyup="validateUsernameKeyup()" onblur="validateUsername()" name="username" placeholder="username" pattern=^[a-z0-9]{6,15}$ title="Username should only contain lowercase letters and at least 6 char." required>
+                    <input type="text" id="username" onkeyup="validateUsernameKeyup()" onblur="validateUsername()" name="username" placeholder="username" pattern=^[a-z0-9]{6,15}$ title="Username may only contain lowercase letters and/or numbers and a minimum of 6 characters with no special characters or spaces." required>
                     <span class="tick"></span>
                     <br>
                     <label for="password">Password</label>
-                    <input type="password" id="password" onkeyup="validatePasswordKeyup()" onblur="validatePassword()" name="password" placeholder="password" pattern=^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]{6,15}$  title="Password should contain lowercase letters, at least one uppercase letter, one digit, and at least 6 char."  required>
+                    <input type="password" id="password" onkeyup="validatePasswordKeyup()" onblur="validatePassword()" name="password" placeholder="password" pattern=^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]{6,15}$  title="Password must have at least one uppercase letter, one digit, and a minimum of 6 characters."  required>
                     <span class="tick"></span>
                     <br>
                     <input class="btn btn-primary" type="submit" value="Sign Up">
@@ -46,7 +46,7 @@
     </div>
   
   
-    <div class="col-md-4">###</div>
+    <div class="col-md-4"></div>
 
 <script src="password.js"></script>
 <% include partials/footer %>
