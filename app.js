@@ -5,33 +5,37 @@ var express = require("express"),
     bodyParser = require("body-parser"),
     passport = require("passport"),
     LocalStrategy = require("passport-local"),
+    flash = require("connect-flash"),
+    Comment = require("./models/comment"),
     User = require("./models/user"),
-    flash = require("connect-flash");
+    Lake = require("./models/lake");
     
 
     
     
 //REQUIRE ROUTES
+var commentRoutes = require("./routes/comments");
 var lakeRoutes = require("./routes/lakes");
 var indexRoutes = require("./routes/index");
 
-//DB CONFIGURATION
-mongoose.Promise = global.Promise;
+// console.log(process.env.DATABASEURL);
+
+// //DB CONFIGURATION
+// mongoose.Promise = global.Promise;
 // mongoose.connect("mongodb://localhost/yelp_lakes_practice", {useMongoClient: true});
+// // console.log(process.env.DATABASEURL)
+mongoose.connect(process.env.DATABASEURL);
 
 // // process.env.DATABASEURL || 
 //     // process.env.MONGODB_URI
 // mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://stevenlian1994:Aslasym4@ds062448.mlab.com:62448/yelpcamp", {useMongoClient: true});
+// mongoose.connect("mongodb://stevenlian1994:Aslasym4@ds062448.mlab.com:62448/yelpcamp", {useMongoClient: true});
 
 // const databaseUri = process.env.mongodb://<steven>:<lian>@ds062448.mlab.com:62448/yelpcamp
 // mongoose.connect(databaseUri, { useMongoClient: true })
 //       .then(() => console.log(`Database connected!`))
 //       .catch(err => console.log(`Database connection error: ${err.message}`));
 
-
-
-  
 //APP CONFIGURATION
 app.use(express.static(__dirname + '/public/stylesheets'));
 
@@ -71,6 +75,7 @@ app.use(function(req, res, next){
 
 app.use("/", indexRoutes);
 app.use("/lakes", lakeRoutes);
+app.use("/lakes/:id/comments", commentRoutes);
 
 
 //START SERVER

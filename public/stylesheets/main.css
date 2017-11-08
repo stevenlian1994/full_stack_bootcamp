@@ -15,6 +15,26 @@ form{
 
 }
 
+.lake-form-container {
+    text-align: center;
+    width: 30%;
+    margin: 20px auto;
+}
+
+.comment-form-container {
+    text-align: center;
+    width: 30%;
+    margin: 20px auto;
+}
+
+.row {
+    margin: 0 0;
+}
+
+.col-md-12 {
+    padding: 0;
+}
+
 .log-in-container{
     height: 200px;
     width: 450px;
