@@ -1,15 +1,15 @@
 var middlewareObj = {};
-var lake = require("../models/lake");
+var Lake = require("../models/lake");
 var Comment = require("../models/comment");
 
-middlewareObj.checklakeOwnership = function(req, res, next){
+middlewareObj.checkLakeOwnership = function(req, res, next){
     if(req.isAuthenticated()){
-        lake.findById(req.params.id, function(err, foundlake){
-            if(err || !foundlake){
+        Lake.findById(req.params.id, function(err, foundLake){
+            if(err || !foundLake){
                 req.flash("error", "lake not found");
                 res.redirect("/lakes");
             } else {
-                if(foundlake.author.id.equals(req.user._id)) {
+                if(foundLake.author.id.equals(req.user._id)) {
                     next();
                 } else {
                     req.flash("error", "You do not have permission to do that");

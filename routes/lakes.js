@@ -22,7 +22,11 @@ router.post("/", middleware.isLoggedIn, function(req, res){
   var name = req.body.name;
   var image = req.body.image;
   var description = req.body.description;
-  var newLake = {name: name, image: image, description: description};
+  var author = {
+        id: req.user._id,
+        username: req.user.username
+    };
+  var newLake = {name: name, image: image, author: author, description: description};
   Lake.create(newLake, function(err, newlyCreated){
       if(err){
             console.log(err);
@@ -56,42 +60,44 @@ router.get("/:id", function(req, res){
 });
 
 
-// //EDIT CAMPGROUND ROUTE
-// router.get("/:id/edit", middleware.checkLakeOwnership, function(req, res){
-//         Lake.findById(req.params.id, function(err, foundLake){
-//             if(err){
-//                 console.log(err);
-//             } else {
-//                 res.render("lakes/edit", {lake: foundLake});
-//             }
-//         });
-// });
+//EDIT CAMPGROUND ROUTE
+router.get("/:id/edit", middleware.checkLakeOwnership, function(req, res){
+        Lake.findById(req.params.id, function(err, foundLake){
+            if(err){
+                res.redirect("back");
+            } else {
+                res.render("lakes/edit", {lake: foundLake});
+            }
+        });
+});
 
-// //UPDATE CAMPGROUND ROUTE
-// router.put("/:id", middleware.checkLakeOwnership, function(req, res){
-//     //find and update the correct lake
-//     //mongoose's method 
-//     Lake.findByIdAndUpdate(req.params.id, req.body.lake, function(err, updatedLake){
-//         if(err){
-//             res.redirect("/lakes");
-//         } else {
-//             res.redirect("/lakes/" + req.params.id);
-//         }
-//     });
-//     //redirect somewhere(show page)
+//UPDATE CAMPGROUND ROUTE
+router.put("/:id", middleware.checkLakeOwnership, function(req, res){
+    //find and update the correct lake
+    //mongoose's method 
+    Lake.findByIdAndUpdate(req.params.id, req.body.lake, function(err, updatedLake){
+        if(err){
+            res.redirect("back");
+        } else {
+            res.redirect("/lakes/" + req.params.id);
+        }
+    });
+    //redirect somewhere(show page)
     
     
-// });
+});
 
-// //DESTROY CAMPGROUND ROUTE
-// router.delete("/:id",middleware.checkLakeOwnership, function(req, res){
-//     Lake.findByIdAndRemove(req.params.id, function(err){
-//         if(err){
-//             res.redirect("/lakes");
-//         } else {
-//             res.redirect("/lakes");
-//         }
-//     })
-// });
+//DESTROY CAMPGROUND ROUTE
+router.delete("/:id", middleware.checkLakeOwnership, function(req, res){
+    Lake.findByIdAndRemove(req.params.id, function(err){
+        if(err){
+            res.redirect("back");
+        } else {
+            res.redirect("/lakes");
+        }
+    });
+});
+
+
 
 module.exports = router;

@@ -4,19 +4,6 @@ var express = require("express"),
 var passport = require("passport");
 var User = require("../models/user");
 
-// var passwordValidator = require('password-validator');
- 
-//     // Create a schema 
-//     var schema = new passwordValidator();
-    
-//     // Add properties to it 
-//     schema
-//     .is().min(8)                                    // Minimum length 8 
-//     .is().max(100)                                  // Maximum length 100 
-//     .has().not().spaces()                           // Should not have spaces 
-    
-
-
 //ROOT ROUTE
 router.get("/", function(req, res){
   res.render("landing");
