@@ -8,7 +8,8 @@ var express = require("express"),
     flash = require("connect-flash"),
     Comment = require("./models/comment"),
     User = require("./models/user"),
-    Lake = require("./models/lake");
+    Lake = require("./models/lake"),
+    methodOverride = require("method-override");
     
 
     
@@ -18,7 +19,7 @@ var commentRoutes = require("./routes/comments");
 var lakeRoutes = require("./routes/lakes");
 var indexRoutes = require("./routes/index");
 
-// console.log(process.env.DATABASEURL);
+console.log(process.env.DATABASEURL);
 
 // //DB CONFIGURATION
 // mongoose.Promise = global.Promise;
@@ -42,6 +43,7 @@ app.use(express.static(__dirname + '/public/stylesheets'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(flash());
+app.use(methodOverride("_method")); 
 
 
 

@@ -1,6 +1,7 @@
 var express = require("express"),
     router = express.Router({mergeParams: true}),
     Lake = require("../models/lake"),
+    Comment = require("../models/comment"),
     middleware = require("../middleware");
     
 
@@ -36,7 +37,7 @@ router.get("/new", middleware.isLoggedIn, function(req, res){
    res.render("lakes/new"); 
 });
 
-module.exports = router;
+
 
 //SHOW ROUTE - shows more info about one lake, has path parameter inside the route -> the id, 
 router.get("/:id", function(req, res){
@@ -54,3 +55,43 @@ router.get("/:id", function(req, res){
     });
 });
 
+
+// //EDIT CAMPGROUND ROUTE
+// router.get("/:id/edit", middleware.checkLakeOwnership, function(req, res){
+//         Lake.findById(req.params.id, function(err, foundLake){
+//             if(err){
+//                 console.log(err);
+//             } else {
+//                 res.render("lakes/edit", {lake: foundLake});
+//             }
+//         });
+// });
+
+// //UPDATE CAMPGROUND ROUTE
+// router.put("/:id", middleware.checkLakeOwnership, function(req, res){
+//     //find and update the correct lake
+//     //mongoose's method 
+//     Lake.findByIdAndUpdate(req.params.id, req.body.lake, function(err, updatedLake){
+//         if(err){
+//             res.redirect("/lakes");
+//         } else {
+//             res.redirect("/lakes/" + req.params.id);
+//         }
+//     });
+//     //redirect somewhere(show page)
+    
+    
+// });
+
+// //DESTROY CAMPGROUND ROUTE
+// router.delete("/:id",middleware.checkLakeOwnership, function(req, res){
+//     Lake.findByIdAndRemove(req.params.id, function(err){
+//         if(err){
+//             res.redirect("/lakes");
+//         } else {
+//             res.redirect("/lakes");
+//         }
+//     })
+// });
+
+module.exports = router;

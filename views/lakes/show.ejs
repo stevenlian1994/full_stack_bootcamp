@@ -22,6 +22,16 @@
                         </em>
                     </p>
                     
+  
+                            
+                        
+                        <a class="btn btn-warning" href="/lakes/<%= lake._id %>/edit">Edit</a>
+
+                        <form class="delete-form" action="/lakes/<%= lake._id %>?_method=DELETE" method="POST">
+                            <button class="btn btn-danger">Delete</button>
+                        </form>
+
+                    
                 </div>
             </div>
             

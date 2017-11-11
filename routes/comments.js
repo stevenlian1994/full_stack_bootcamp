@@ -1,7 +1,8 @@
 var express = require("express");
 var router = express.Router({mergeParams: true});
-var Lake = require("../models/lake")
-var Comment = require("../models/comment")
+var Lake = require("../models/lake");
+var Comment = require("../models/comment");
+var middleware = require("../middleware");
 
 
 //Comments New
@@ -42,6 +43,42 @@ router.post("/", isLoggedIn, function(req, res){
            
        }
    })
+});
+
+//COMMENT EDIT
+router.get("/:comment_id/edit", middleware.checkCommentOwnership, function(req, res){
+    Comment.findById(req.params.comment_id, function(err, foundComment){
+        if(err){
+            res.redirect("back");
+        } else {
+            res.render("comments/edit", {lake_id: req.params.id, comment: foundComment});
+        }
+    });
+});
+
+//COMMENT UPDATE
+router.put("/:comment_id", middleware.checkCommentOwnership, function(req, res){
+    Comment.findByIdAndUpdate(req.params.comment_id, req.body.comment, function(err, updatedComment){
+       if(err){
+           res.redirect("back");
+       } else {
+           res.redirect("/lakes/" + req.params.id)
+       }
+    });
+});
+
+
+//COMMENT DESTORY ROUTE
+router.delete("/:comment_id", middleware.checkCommentOwnership, function(req, res){
+   //findByIdAndRemove
+   Comment.findByIdAndRemove(req.params.comment_id, function(err){
+       if(err){
+           res.redirect("back");
+       } else {
+           req.flash("success", "Comment deleted");
+          res.redirect("/lakes/" + req.params.id); 
+       }
+   });
 });
 
 //middleware
