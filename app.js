@@ -11,6 +11,8 @@ var express = require("express"),
     Lake = require("./models/lake"),
     methodOverride = require("method-override");
     
+var moment = require("moment-timezone");
+    
 
     
     
@@ -22,10 +24,10 @@ var indexRoutes = require("./routes/index");
 console.log(process.env.DATABASEURL);
 
 // //DB CONFIGURATION
-// mongoose.Promise = global.Promise;
-// mongoose.connect("mongodb://localhost/yelp_lakes_practice", {useMongoClient: true});
+mongoose.Promise = global.Promise;
+mongoose.connect("mongodb://localhost/yelp_lakes_practice", {useMongoClient: true});
 // // console.log(process.env.DATABASEURL)
-mongoose.connect(process.env.DATABASEURL);
+// mongoose.connect(process.env.DATABASEURL);
 
 // // process.env.DATABASEURL || 
 //     // process.env.MONGODB_URI

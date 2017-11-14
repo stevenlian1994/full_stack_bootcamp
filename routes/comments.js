@@ -3,7 +3,7 @@ var router = express.Router({mergeParams: true});
 var Lake = require("../models/lake");
 var Comment = require("../models/comment");
 var middleware = require("../middleware");
-
+var moment = require("moment-timezone");
 
 //Comments New
 router.get("/new", isLoggedIn, function(req, res){
@@ -31,6 +31,9 @@ router.post("/", isLoggedIn, function(req, res){
                    //add username and id to comment
                    comment.author.id = req.user._id;
                    comment.author.username = req.user.username;
+                   var a = Date.now();
+                 
+                   comment.time = moment(a).format('LL'); 
                    console.log("New comment's username will be: " + req.user.username);
                    //save comment
                    comment.save();
@@ -44,6 +47,12 @@ router.post("/", isLoggedIn, function(req, res){
        }
    })
 });
+
+// var jun = moment("2014-06-01T12:00:00Z");
+// var dec = moment("2014-12-01T12:00:00Z");
+
+// jun.tz('America/Los_Angeles').format('ha z');  // 5am PDT
+
 
 //COMMENT EDIT
 router.get("/:comment_id/edit", middleware.checkCommentOwnership, function(req, res){
