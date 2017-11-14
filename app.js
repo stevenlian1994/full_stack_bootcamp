@@ -25,9 +25,9 @@ console.log(process.env.DATABASEURL);
 
 // //DB CONFIGURATION
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost/yelp_lakes_practice", {useMongoClient: true});
+// mongoose.connect("mongodb://localhost/yelp_lakes_practice", {useMongoClient: true});
 // // console.log(process.env.DATABASEURL)
-// mongoose.connect(process.env.DATABASEURL);
+mongoose.connect(process.env.DATABASEURL);
 
 // // process.env.DATABASEURL || 
 //     // process.env.MONGODB_URI
