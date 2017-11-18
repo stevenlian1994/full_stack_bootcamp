@@ -68,7 +68,7 @@ passport.deserializeUser(User.deserializeUser());
 //res.locals An object that contains response local variables scoped to the request, 
 //and therefore available only to the view(s) rendered during that request / response cycle (if any). 
 // Otherwise, this property is identical to app.locals
-
+     
 app.use(function(req, res, next){
    res.locals.currentUser = req.user;
    res.locals.error = req.flash("error");
